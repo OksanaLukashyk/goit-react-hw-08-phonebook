@@ -5,17 +5,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: grey;
-  min-height: 100vh;
+  height: 100vh;
   /* background-image: url(https://www.c-h-w.com/wp-content/uploads/2017/09/blog-phonebox.jpg); */
   /* background-image: url(https://i0.wp.com/picjumbo.com/wp-content/uploads/creativity-iphone-notebook-laptop-pen-glasses-free-photo.jpg?w=2210&quality=70); */
-  /* background-image: url(https://static.vecteezy.com/system/resources/previews/003/055/127/large_2x/hand-with-smartphone-laptop-notebook-on-black-background-free-photo.jpg); */
-  background-image: url(https://freerangestock.com/sample/39708/mobile-phone-and-notebook.jpg);
-  background-position: center;
-  background-size: cover;
   font-size: 16px;
   line-height: 1.2;
   color: rgb(255, 255, 255);
+}
+
+#light {
+  background-color: rgb(128, 128, 128);
+  background-image: url(https://freerangestock.com/sample/39708/mobile-phone-and-notebook.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+#dark {
+  background-color: rgb(56, 54, 51);
+  background-image: url(https://static.vecteezy.com/system/resources/previews/003/055/127/large_2x/hand-with-smartphone-laptop-notebook-on-black-background-free-photo.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 code {
