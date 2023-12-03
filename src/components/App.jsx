@@ -1,36 +1,61 @@
-import { Notify } from 'notiflix';
-import { useEffect } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectError, selectIsLoading } from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
-import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
-import { ContactList } from './ContactList/ContactList';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { refreshUser } from 'redux/auth/auth.operations';
+import SharedLayout from './SharedLayout/SharedLayout';
 import { Loader } from './Loader/Loader';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
+import { selectIsRefreshing } from 'redux/auth/auth.selectors';
+
+const Home = lazy(() => import('pages/Home/Home'));
+const Register = lazy(() => import('pages/Register/Register'));
+const Login = lazy(() => import('pages/Login/Login'));
+const Contacts = lazy(() => import('pages/Contacts/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    <div className="glass">
-      {isLoading && !error && <Loader />}
-
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      {error &&
-        Notify.failure(
-          `Oops, some error occured... Please try reloading the page`,
-          { timeout: 6000 }
-        )}
-      <Filter />
-      <ContactList />
-    </div>
+  return isRefreshing ? (
+    <>
+      <b>Refreshing user</b>
+      <Loader />
+    </>
+  ) : (
+    <SharedLayout>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<Register />}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/contacts" component={<Login />} />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              // <PrivateRoute redirectTo="/login" component={<Contacts />} />
+              <PrivateRoute component={<Contacts />} />
+            }
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Suspense>
+    </SharedLayout>
   );
 };

@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/contacts/contacts.selectors';
+import { addContact } from 'redux/contacts/contacts.operations';
 import css from './ContactForm.module.css';
 
 export const ContactForm = () => {
@@ -15,9 +15,15 @@ export const ContactForm = () => {
 
     const form = evt.target;
     const { name, number } = form.elements;
+    // const contactData = {
+    //   name: name.value,
+    //   phone: number.value,
+    //   id: nanoid(),
+    // };
+
     const contactData = {
       name: name.value,
-      phone: number.value,
+      number: number.value,
       id: nanoid(),
     };
 

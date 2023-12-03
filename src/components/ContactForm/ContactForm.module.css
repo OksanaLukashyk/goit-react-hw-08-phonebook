@@ -6,10 +6,14 @@
   justify-content: space-between;
   min-width: 300px;
   padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 20px;
-  /* box-shadow: rgba(165, 100, 31, 0.92) 5px 5px 15px 10px inset;
-   */
-  box-shadow: 0 0 5px 0 inset, rgba(227, 139, 45, 0.92) 5px 5px 15px 10px inset;
+  /* box-shadow: rgba(165, 100, 31, 0.92) 5px 5px 15px 10px inset; */
+
+  /* box-shadow: 0 0 5px 0, rgba(227, 139, 45, 0.92) 5px 5px 15px 10px inset; */
+  /* box-shadow: 0 0 10px 2px inset, rgba(227, 139, 45, 0.92) 0 0 7px 5px inset; */
+  background-color: rgba(255, 255, 255, 0.557);
+  background-color: rgba(66, 45, 34, 0.167);
 }
 
 .formLabel {
@@ -44,7 +48,9 @@
   font-size: 14px;
   text-transform: capitalize;
   color: seashell;
-  box-shadow: rgba(0, 0, 0, 0.24) 10px 10px 10px 10px inset;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 10px 10px 10px 10px inset; */
+  box-shadow: 0 0 10px 2px inset, rgba(227, 139, 45, 0.92) 0 0 7px 5px inset;
+
   transition: transform 0.3s ease-in-out;
 }
 

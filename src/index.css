@@ -7,10 +7,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  background-color: grey;
+  /* 
   background-image: url(https://www.c-h-w.com/wp-content/uploads/2017/09/blog-phonebox.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
+  font-size: 16px;
+  line-height: 1.2;
+  color: rgb(255, 255, 255);
 }
 
 code {
@@ -43,6 +47,11 @@ img {
   height: auto;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .container {
   max-width: 100%;
   padding: 15px;
@@ -50,24 +59,9 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  /* font-size: 16px;
   line-height: 1.2;
-  color: rgb(255, 255, 255);
-}
-
-.glass {
-  padding: 15px;
-  width: 500px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  box-shadow: 0 0 20px 5px rgb(255, 252, 248);
-  background: inherit;
-  backdrop-filter: blur(7px);
+  color: rgb(255, 255, 255); */
 }
 
 ::-webkit-scrollbar {
