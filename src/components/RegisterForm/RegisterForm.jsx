@@ -9,9 +9,9 @@ export const RegisterForm = () => {
     evt.preventDefault();
 
     const formData = {
-      name: evt.currentTarget.elements.name.value,
-      email: evt.currentTarget.elements.email.value,
-      password: evt.currentTarget.elements.password.value,
+      name: evt.currentTarget.elements.name.value.trim(),
+      email: evt.currentTarget.elements.email.value.trim(),
+      password: evt.currentTarget.elements.password.value.trim(),
     };
 
     dispatch(register(formData));
@@ -39,7 +39,7 @@ export const RegisterForm = () => {
           type="password"
           name="password"
           minLength={7}
-          placeholder="Enter password, consisting at least of 7 symbols"
+          placeholder="At least 7 characters"
           required
         />
       </label>

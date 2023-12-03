@@ -1,23 +1,32 @@
-// const styles = {
-//   container: {
-//     minHeight: 'calc(100vh - 50px)',
-//     display: 'flex',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   title: {
-//     fontWeight: 500,
-//     fontSize: 48,
-//     textAlign: 'center',
-//   },
-// };
+import { useSelector } from 'react-redux';
+import {
+  selectIsLoggedIn,
+  selectIsRefreshing,
+} from 'redux/auth/auth.selectors';
 import css from './Home.module.css';
+
 export default function Home() {
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const shouldRedirect = !isLoggedIn && !isRefreshing;
+
   return (
     <div className={css.homeContainer}>
-      <h1 className={css.homeHeader}>
-        Hello! Please, register or log in to use the app
-      </h1>
+      {shouldRedirect ? (
+        <div className={css.greetingsWrp}>
+          <h1 className={css.homeHeader}>Hello!</h1>
+          <p className={css.greetingText}>
+            Please register or log in to use the app.
+          </p>
+        </div>
+      ) : (
+        <div className={css.greetingsWrp}>
+          <h1 className={css.homeHeader}>Welcome!</h1>
+          <p className={css.greetingText}>
+            Please proceed to the Contacts page. Have a nice day!
+          </p>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,12 +1,28 @@
 .homeContainer {
-  min-height: calc(100vh - 50px);
+  margin-top: 30px;
+}
+
+.greetingsWrp {
+  padding: 50px;
+  width: 500px;
+  height: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 25px;
+  border-radius: 20px;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7px);
 }
 
 .homeHeader {
   font-weight: 500;
-  font-size: 48px;
+  font-size: 36px;
   text-align: center;
+}
+
+.greetingText {
+  font-size: 20px;
 }

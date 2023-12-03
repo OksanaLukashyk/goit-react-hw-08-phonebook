@@ -1,5 +1,3 @@
-@import-normalize; /* bring in normalize.css styles */
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,10 +6,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: grey;
-  /* 
-  background-image: url(https://www.c-h-w.com/wp-content/uploads/2017/09/blog-phonebox.jpg);
-  background-repeat: no-repeat;
-  background-size: cover; */
+  min-height: 100vh;
+  /* background-image: url(https://www.c-h-w.com/wp-content/uploads/2017/09/blog-phonebox.jpg); */
+  background-image: url(https://freerangestock.com/sample/39708/mobile-phone-and-notebook.jpg);
+  /* background-image: url(https://i0.wp.com/picjumbo.com/wp-content/uploads/creativity-iphone-notebook-laptop-pen-glasses-free-photo.jpg?w=2210&quality=70); */
+  /* background-image: url(https://static.vecteezy.com/system/resources/previews/003/055/127/large_2x/hand-with-smartphone-laptop-notebook-on-black-background-free-photo.jpg); */
+  background-position: center;
+  background-size: cover;
   font-size: 16px;
   line-height: 1.2;
   color: rgb(255, 255, 255);
@@ -20,6 +21,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 h1,
@@ -52,35 +59,92 @@ a {
   color: inherit;
 }
 
-.container {
-  max-width: 100%;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* font-size: 16px;
-  line-height: 1.2;
-  color: rgb(255, 255, 255); */
-}
-
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: seashell;
-  /* Колір полоси скролбару */
   border-radius: 10px;
-  /* Радіус кутів */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #707070;
+  background: rgb(113, 96, 63);
+}
+
+/* === Common styles for pages === */
+
+.entryFormWrp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageTitle {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 350px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7px);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+  display: flex;
+  gap: 8px;
+}
+
+input {
+  padding: 8px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #00223e;
+  box-shadow: rgba(0, 0, 0, 0.24) 10px 10px 5px 0px;
+}
+
+button {
+  padding: 8px;
+  width: 150px;
+  height: 40px;
+  border-color: transparent;
+  outline: none;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.55);
+  font-size: 18px;
+  font-weight: 500;
+  color: seashell;
+  box-shadow: black 1px 5px 10px, rgb(255, 255, 255) 1px 5px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.03);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: black 1px 0 7px, rgb(255, 183, 0) 2px 2px 15px;
 }

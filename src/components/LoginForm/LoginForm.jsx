@@ -34,11 +34,13 @@ export const LoginForm = () => {
           type="password"
           name="password"
           minLength={7}
-          placeholder="Enter password, consisting at least of 7 symbols"
+          placeholder="At least 7 characters"
           required
         />
       </label>
-      <button type="submit">Log In</button>
+      <button type="submit" className={css.logInBtn}>
+        Log In
+      </button>
     </form>
   );
 };

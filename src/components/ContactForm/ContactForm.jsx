@@ -15,11 +15,6 @@ export const ContactForm = () => {
 
     const form = evt.target;
     const { name, number } = form.elements;
-    // const contactData = {
-    //   name: name.value,
-    //   phone: number.value,
-    //   id: nanoid(),
-    // };
 
     const contactData = {
       name: name.value,

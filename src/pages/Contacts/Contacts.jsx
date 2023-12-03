@@ -24,17 +24,23 @@ const Contacts = () => {
   return (
     <div className={css.glass}>
       {isLoading && !error && <Loader />}
+      <div className={css.phonebookWrp}>
+        <div className={css.blockWrp}>
+          <h1 className={css.blockTitle}>Add new contact:</h1>
+          <ContactForm />
+          <Filter />
+        </div>
 
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      {error &&
-        Notify.failure(
-          `Oops, some error occured... Please try reloading the page`,
-          { timeout: 6000 }
-        )}
-      <Filter />
-      <ContactList />
+        <div className={css.blockWrp}>
+          <h2 className={css.blockTitle}>Contacts</h2>
+          {error &&
+            Notify.failure(
+              `Oops, some error occured... Please try reloading the page`,
+              { timeout: 6000 }
+            )}
+          <ContactList />
+        </div>
+      </div>
     </div>
   );
 };

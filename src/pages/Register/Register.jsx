@@ -2,8 +2,8 @@ import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
 export default function Register() {
   return (
-    <div>
-      <h1>Registration</h1>
+    <div className="entryFormWrp">
+      <h1 className="pageTitle">Registration</h1>
       <RegisterForm />
     </div>
   );

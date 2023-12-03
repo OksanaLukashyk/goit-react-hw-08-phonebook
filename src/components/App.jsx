@@ -2,11 +2,11 @@ import React, { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { refreshUser } from 'redux/auth/auth.operations';
+import { selectIsRefreshing } from 'redux/auth/auth.selectors';
 import SharedLayout from './SharedLayout/SharedLayout';
 import { Loader } from './Loader/Loader';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
-import { selectIsRefreshing } from 'redux/auth/auth.selectors';
 
 const Home = lazy(() => import('pages/Home/Home'));
 const Register = lazy(() => import('pages/Register/Register'));
@@ -49,8 +49,8 @@ export const App = () => {
           <Route
             path="/contacts"
             element={
-              // <PrivateRoute redirectTo="/login" component={<Contacts />} />
-              <PrivateRoute component={<Contacts />} />
+              <PrivateRoute redirectTo="/login" component={<Contacts />} />
+              // <PrivateRoute component={<Contacts />} />
             }
           />
           <Route path="*" element={<Navigate to="/" />} />

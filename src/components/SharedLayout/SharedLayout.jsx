@@ -11,39 +11,66 @@ const SharedLayout = ({ children }) => {
   const user = useSelector(selectUser);
 
   return (
-    <div className={css.container}>
+    <div className={css.layoutWrp}>
       <header className={css.pageHeader}>
         <nav className={css.nav}>
-          <NavLink className={css.navLink} to="/" end>
+          <NavLink
+            className={({ isActive }) =>
+              `${css.navLink} ${isActive ? css.active : ''}`
+            }
+            to="/"
+            end
+          >
             Home
           </NavLink>
 
           {isLoggedIn ? (
             <>
-              <NavLink className={css.navLink} to="/contacts">
+              <NavLink
+                className={({ isActive }) =>
+                  `${css.navLink} ${isActive ? css.active : ''}`
+                }
+                to="/contacts"
+              >
                 Contacts
               </NavLink>
 
-              <div className={css.wrapper}>
-                <p className={css.username}>Welcome, {user.name}</p>
-                <button type="button" onClick={() => dispatch(logOut())}>
+              <div className={css.userHeaderWrp}>
+                <p className={css.username}>
+                  Welcome, <b>{user.name}</b>
+                </p>
+                <button
+                  className={css.logOutBtn}
+                  type="button"
+                  onClick={() => dispatch(logOut())}
+                >
                   Logout
                 </button>
               </div>
             </>
           ) : (
-            <div>
-              <NavLink className={css.navLink} to="/register">
+            <div className={css.entryOptionsWrp}>
+              <NavLink
+                className={({ isActive }) =>
+                  `${css.navLink} ${isActive ? css.active : ''}`
+                }
+                to="/register"
+              >
                 Register
               </NavLink>
-              <NavLink className={css.navLink} to="/login">
+              <NavLink
+                className={({ isActive }) =>
+                  `${css.navLink} ${isActive ? css.active : ''}`
+                }
+                to="/login"
+              >
                 Log In
               </NavLink>
             </div>
           )}
         </nav>
       </header>
-      <main>{children}</main>
+      <main className={css.mainWrp}>{children}</main>
     </div>
   );
 };
