@@ -32,7 +32,6 @@ export const register = createAsyncThunk(
     }
   }
 );
-// ascaas@sdfdf.sf
 
 export const logIn = createAsyncThunk(
   'auth/login',
@@ -60,6 +59,7 @@ export const refreshUser = createAsyncThunk(
       return data;
     } catch (error) {
       Notify.failure('Something went wrong, try again', OPTIONS);
+      console.log(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   },
