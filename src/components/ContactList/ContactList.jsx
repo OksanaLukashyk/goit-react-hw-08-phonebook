@@ -19,7 +19,9 @@ export const ContactList = () => {
           />
         ))
       ) : (
-        <li>"You haven't added any contact yet..."</li>
+        <li style={{ width: 450, textAlign: 'center' }}>
+          "You haven't added any contact yet..."
+        </li>
       )}
     </ul>
   );
