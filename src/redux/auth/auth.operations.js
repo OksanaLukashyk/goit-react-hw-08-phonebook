@@ -11,10 +11,6 @@ const setToken = token => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// const unsetToken = () => {
-//   instance.defaults.headers.common.Authorization = '';
-// };
-
 export const register = createAsyncThunk(
   'auth/register',
   async (formData, thunkAPI) => {
@@ -25,7 +21,7 @@ export const register = createAsyncThunk(
       return data;
     } catch (error) {
       Notify.failure(
-        'Try again, user with such credentials exists already',
+        'Try again, user with such credentials already exists',
         OPTIONS
       );
       return thunkAPI.rejectWithValue(error.message);
@@ -59,7 +55,6 @@ export const refreshUser = createAsyncThunk(
       return data;
     } catch (error) {
       Notify.failure('Something went wrong, try again', OPTIONS);
-      console.log(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   },
@@ -77,7 +72,6 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     const { data } = await instance.post('/users/logout');
     return data;
-    // unsetToken();
   } catch (error) {
     Notify.failure('Something went wrong, try again', OPTIONS);
     return thunkAPI.rejectWithValue(error.message);
